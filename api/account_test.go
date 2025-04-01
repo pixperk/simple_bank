@@ -89,7 +89,7 @@ func TestGetAccountAPI(t *testing.T) {
 			//build stubs
 			tc.buildStubs(store)
 			//start test server
-			server := NewServer(store)
+			server := newTestServer(t, store)
 			recorder := httptest.NewRecorder()
 
 			url := fmt.Sprintf("/accounts/%d", tc.accountID)
