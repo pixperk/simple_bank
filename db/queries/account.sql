@@ -20,9 +20,10 @@ FOR NO KEY UPDATE; --to avoid deadlock due to foreign key constraint
 -- name: ListAccounts :many
 SELECT *
 FROM accounts
+WHERE owner = $1
 order by id
-LIMIT $1
-OFFSET $2;
+LIMIT $2
+OFFSET $3;
 
 -- name: UpdateAccount :one
 UPDATE accounts
